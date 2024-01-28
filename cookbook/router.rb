@@ -23,7 +23,10 @@ class Router
     puts "1. Add a recipe"
     puts "2. List all recipes"
     puts "3. Remove a recipe"
-    puts "4. Exit the program"
+    puts "4. Import a recipe"
+    puts "5. Mark recipe as done"
+    puts "6. Exit the program"
+    print "> "
   end
 
   def actions_menu(action)
@@ -31,7 +34,9 @@ class Router
     when 1 then @controller.add
     when 2 then @controller.list
     when 3 then @controller.remove
-    when 4 then exit
+    when 4 then @controller.import
+    when 5 then @controller.mark_as_done
+    when 6 then exit
     else
       puts "Please type 1, 2, 3 or 4 :)"
     end
