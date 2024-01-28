@@ -1,7 +1,8 @@
 class View
   def display_recipes(recipes)
     recipes.each_with_index do |recipe, index|
-      puts "#{index + 1} - #{recipe.name} - #{recipe.description}"
+      done = recipe.done? ? 'X' : ''
+      puts "#{index + 1}. #{status} #{recipe.name}: #{recipe.description} - #{recipe.rating}/5 - #{recipe.prep_time}"
     end
   end
 
@@ -17,9 +18,21 @@ class View
     gets.chomp
   end
 
+  def ask_user_for_stuff(stuff)
+    puts "#{stuff.capitalize}"
+    print "> "
+    gets.chomp
+  end
+
   def ask_user_for_index
-    puts "What is the recipe you want to remove?"
+    puts "Which recipe?"
     print '> '
     gets.chomp.to_i - 1
+  end
+
+  def ask_user_for(stuff)
+    puts "#{stuff.capitalize}?"
+    print "> "
+    return gets.chomp
   end
 end
