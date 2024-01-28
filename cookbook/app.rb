@@ -3,9 +3,8 @@ require_relative 'cookbook'
 require_relative 'controller'
 require_relative 'router'
 
-recipe1 = Recipe.new('Lomo saltado', 'Sabrosa mezcla carne y más')
-recipe2 = Recipe.new('Ají de pollo', 'Deliciosa masa amarilla')
 csv_file = File.join(__dir__, 'recipes.csv')
+# CSV_FILE = File.join(File.dirname(__FILE__), 'recipes.csv')
 cookbook = Cookbook.new(csv_file)
 controller = Controller.new(cookbook)
 router = Router.new(controller)
